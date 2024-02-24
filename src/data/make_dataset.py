@@ -17,7 +17,7 @@ def main(input_filepath, output_filepath):
 
     ######################## TRATAMENTO DOS NULOS   
     # preenchimento dos nulos
-    num_cols = df_casas_raw.select_dtypes('float', 'int').columns
+    num_cols = df_casas_raw.select_dtypes(['float', 'int']).columns
     obj_cols = df_casas_raw.drop(columns='Electrical').select_dtypes('object').columns
     df_casas_raw[num_cols] = df_casas_raw[num_cols].fillna(0)
     df_casas_raw[obj_cols] = df_casas_raw[obj_cols].fillna('NotAvailable')
