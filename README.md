@@ -29,7 +29,14 @@ Espera-se que, ao final do projeto, seja entregue um modelo de machine learning 
 
 Com uma abordagem prática e voltada para a resolução de problemas reais, este projeto visa não apenas aprimorar minhas habilidades em machine learning, mas também proporcionar insights valiosos para o setor imobiliário.
 
+# Resultados
+.
 
+.
+
+.
+
+.
 # Organização do Projeto
 
 
