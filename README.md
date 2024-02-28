@@ -31,14 +31,6 @@ Esse modelo deverá ser servido por meio de uma API para que a empresa possa int
 
 Com uma abordagem prática e voltada para a resolução de problemas reais, este projeto visa não apenas aprimorar minhas habilidades em machine learning, mas também proporcionar insights valiosos para o setor imobiliário.
 
-# Resultados
-.
-
-.
-
-.
-
-.
 # Organização do Projeto
 
 
