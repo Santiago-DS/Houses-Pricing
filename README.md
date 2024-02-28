@@ -4,7 +4,7 @@
 
 # Houses-Pricing
 ## Sobre o Projeto
-Afim de aprimorar minhas habilidades em machine learning, decidi criar um projeto utilizando um dataset disponível no [Kaggle](https://www.kaggle.com.)
+Afim de aprimorar minhas habilidades em machine learning, decidi criar um projeto utilizando um dataset disponível no [Kaggle](https://www.kaggle.com.). **Apesar disso, quero criar um projeto que passe por todo o processo de machine learning, desde a exploração dos dados até o deploy de um modelo via API. Portanto, tentarei não gastar muito tempo na exploração e nem em teste de modelos.**
 
 Optei por adicionar um toque de realismo ao projeto, criando uma empresa fictícia e um problema de negócio para solucionar. Assim, nasceu a **American Houses**. Trata-se de uma empresa fictícia do setor imobiliário, com a missão de se tornar uma referência na venda de imóveis.
 
@@ -26,6 +26,8 @@ A empresa Amarican Houses enfrenta dificuldades devido à lentidão e falta de t
 
 ## Resultados Esperados
 Espera-se que, ao final do projeto, seja entregue um modelo de machine learning que seja capaz de prever com precisão o valor de venda de casas com base nas características fornecidas. Esse modelo será uma ferramenta valiosa para a American Houses na definição de estratégias de precificação e na maximização dos lucros.
+
+Esse modelo deverá ser servido por meio de uma API para que a empresa possa integrar o modelo em seus sistemas.
 
 Com uma abordagem prática e voltada para a resolução de problemas reais, este projeto visa não apenas aprimorar minhas habilidades em machine learning, mas também proporcionar insights valiosos para o setor imobiliário.
 
