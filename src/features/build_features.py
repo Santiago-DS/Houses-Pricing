@@ -18,32 +18,17 @@ num_cols = list(casas.drop(columns='Id').select_dtypes(['int', 'float']).columns
 cat_cols = list(casas.select_dtypes('object').columns)
 
 
-################################
-##### CONSTRUCAO DAS FEATURES
-################################
+###############################
+##### GERANDO DUMMIES
+###############################
 
-# filtrando os atributos numericos por correlacao
-# usarei apenas features com correlacao (em valor absoluto) maior que 0.3
-corr = casas[num_cols].corr()
-num_cols_selected = corr.loc[ abs(corr['SalePrice']) > 0.3,  'SalePrice']
-num_cols_selected = num_cols_selected.iloc[ num_cols_selected.index != 'SalePrice' ].index.tolist()
+# gerando contagem das variaveis pela quantidade de categorias unicas
+count_cat = casas[cat_cols].describe().T.sort_values('unique', ascending=False)['unique'].reset_index()
+two_cats = count_cat.loc[count_cat['unique'] < 3, 'index'].values # quero apenas as que tenham menos 3 categorias unicas
 
-# filtrando os atributos categoricos que tem correlacao com a variavel alvo
-# teste ANOVA para identificar as variaveis categoricas que tem relacao com SalePrice
-cat_cols2 = cat_cols + ['SalePrice']
-cat_cols_selected = []
-a = 0.05
-for col in cat_cols2:
-    categorias = [dados for grupo, dados in casas[cat_cols2].groupby(col)['SalePrice']]
-    anova_result = f_oneway(*categorias)
+# gerando as dummies para as variaveis com mais de 3 categorias
+cat_dummies = pd.get_dummies(casas[cat_cols].drop(columns=two_cats))
+two_cat_dummies = pd.get_dummies(casas[two_cats], drop_first=True)
 
-    if (anova_result.pvalue <= a) & (col != 'SalePrice'):
-        cat_cols_selected.append(col)
-
-# variaveis selecionadas
-variaveis = ['Id'] + cat_cols + num_cols
-casas_features = casas[variaveis]
-
-################################
-##### ENCODING
-################################
+# juntando as duas
+casas_dummies = pd.concat([casas[num_cols], cat_dummies, two_cat_dummies])
