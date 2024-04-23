@@ -15,16 +15,22 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 from xgboost import XGBRegressor
 from sklearn.linear_model import LinearRegression
+import warnings
+warnings.filterwarnings("ignore")
 
 ################################
 ##### CARREGAMENTO DOS DADOS
 ################################
+print('Script de treinamento do modelo!')
+print('Carregando os dados...')
 df = pd.read_csv(r"../../data/processed/train_casas.csv")
+
 
 
 ################################
 ##### DIVISAO DAS BASES
 ################################
+print('Preparando as bases...')
 SEED = 42
 np.random.seed(SEED)
 
@@ -42,6 +48,7 @@ y_test= df_test['SalePrice'].astype('float').values
 ################################
 ##### PIPELINE DE TREINAMENTO
 ################################
+print('Treinando os modelos...')
 scaler = MinMaxScaler()
 cv = KFold(n_splits=10, shuffle=True)
 #params = {}
@@ -91,12 +98,14 @@ for name, model in zip(list(models.keys()), list(models.values())):
         mlflow.log_metric('limite_inferior', limite_inferior*100)
         mlflow.log_metric('test_database_r2_score_', r2_score_test_database*100)
         models_r2score.append(r2_score_test_database)
+        print(f'Treinamento do modelo {name} concluido!')
 
 models_result = {
     'Modelo': list(models.keys()),
     'r2_score': models_r2score
 }
 
+print('\nO melhor modelo foi selecionado com base no r2_score.\nO modelo selecionado foi:')
 models_df = pd.DataFrame(models_result)
 best_estimator_name = models_df.nlargest(columns='r2_score',n=1).Modelo.values[0]
 print(best_estimator_name)

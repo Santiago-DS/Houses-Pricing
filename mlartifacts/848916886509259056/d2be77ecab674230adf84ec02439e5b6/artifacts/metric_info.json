@@ -1,0 +1,12 @@
+{
+  "Pipeline_score-10_X_train-5": "Pipeline.score(X=X_train, y=y_train)",
+  "Pipeline_score-2_X_train": "Pipeline.score(X=X_train, y=y_train)",
+  "Pipeline_score-3_X_test-2": "Pipeline.score(X=X_test, y=y_test)",
+  "Pipeline_score-4_X_train-2": "Pipeline.score(X=X_train, y=y_train)",
+  "Pipeline_score-5_X_test-3": "Pipeline.score(X=X_test, y=y_test)",
+  "Pipeline_score-6_X_train-3": "Pipeline.score(X=X_train, y=y_train)",
+  "Pipeline_score-7_X_test-4": "Pipeline.score(X=X_test, y=y_test)",
+  "Pipeline_score-8_X_train-4": "Pipeline.score(X=X_train, y=y_train)",
+  "Pipeline_score-9_X_test-5": "Pipeline.score(X=X_test, y=y_test)",
+  "Pipeline_score_X_test": "Pipeline.score(X=X_test, y=y_test)"
+}

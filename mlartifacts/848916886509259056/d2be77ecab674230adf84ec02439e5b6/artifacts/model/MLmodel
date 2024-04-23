@@ -1,0 +1,38 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.1.post1
+mlflow_version: 2.11.1
+model_size_bytes: 11703015
+model_uuid: c6011cfff08049b89167389493858a51
+run_id: d2be77ecab674230adf84ec02439e5b6
+signature:
+  inputs: '[{"type": "double", "name": "LotFrontage", "required": true}, {"type":
+    "double", "name": "LotArea", "required": true}, {"type": "double", "name": "OverallCond",
+    "required": true}, {"type": "double", "name": "YearRemodAdd", "required": true},
+    {"type": "double", "name": "MasVnrArea", "required": true}, {"type": "double",
+    "name": "BsmtFullBath", "required": true}, {"type": "double", "name": "BsmtHalfBath",
+    "required": true}, {"type": "double", "name": "FullBath", "required": true}, {"type":
+    "double", "name": "HalfBath", "required": true}, {"type": "double", "name": "BedroomAbvGr",
+    "required": true}, {"type": "double", "name": "KitchenAbvGr", "required": true},
+    {"type": "double", "name": "WoodDeckSF", "required": true}, {"type": "double",
+    "name": "OpenPorchSF", "required": true}, {"type": "double", "name": "EnclosedPorch",
+    "required": true}, {"type": "double", "name": "3SsnPorch", "required": true},
+    {"type": "double", "name": "ScreenPorch", "required": true}, {"type": "double",
+    "name": "CentralAir_Y", "required": true}, {"type": "double", "name": "Street_Pave",
+    "required": true}, {"type": "double", "name": "Utilities_NoSeWa", "required":
+    true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2024-03-15 19:12:49.464885'
