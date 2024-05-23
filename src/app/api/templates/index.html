@@ -56,34 +56,51 @@
 								
 								<span class="image main"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span>
 								<meta charset="UTF-8">
-								<meta name="viewport" content="width=device-width, initial-scale=1.0">
-								<title>Carregar Arquivo</title>
-								<style>
-									.file-upload {
-										display: inline-block;
-										padding: 6px 12px;
-										cursor: pointer;
-										background-color: #4CAF50;
-										color: white;
-										border: none;
-										border-radius: 4px;
-										text-align: center;
-										font-size: 16px;
-									}
-							
-									#fileInput {
-										display: none;
-									}
-								</style>
-							</head>
-							<body>
 								<h1>Teste de Carregamento de Arquivo</h1>
-								
+
 								<!-- Label que simula um botão -->
 								<label for="fileInput" class="file-upload">Carregar Arquivo</label>
-								
+
 								<!-- Input de arquivo escondido -->
-								<input type="file" id="fileInput" />
+								<input type="file" id="fileInput" onchange="handleFileSelect(event)" />
+
+								<script>
+									function handleFileSelect(event) {
+										const file = event.target.files[0];
+										const reader = new FileReader();
+
+										reader.onload = function(event) {
+											const contents = event.target.result;
+											sendFileToAPI(contents);
+										}
+
+										reader.readAsText(file);
+									}
+
+									function sendFileToAPI(fileContent) {
+										// Aqui você faria um pedido HTTP POST para enviar o arquivo para a sua API Flask
+										// Por exemplo, usando fetch ou XMLHttpRequest
+										// Exemplo com fetch:
+										fetch('/upload', {
+											method: 'POST',
+											headers: {
+												'Content-Type': 'text/csv' // Defina o tipo de conteúdo adequado para o seu arquivo
+											},
+											body: fileContent
+										})
+										.then(response => {
+											if (response.ok) {
+												console.log('Arquivo enviado com sucesso!');
+												// Aqui você pode lidar com a resposta da API, se necessário
+											} else {
+												console.error('Erro ao enviar o arquivo:', response.status);
+											}
+										})
+										.catch(error => {
+											console.error('Erro ao enviar o arquivo:', error);
+										});
+									}
+								</script>
 							</article>
 
 
